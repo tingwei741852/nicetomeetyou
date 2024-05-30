@@ -1,5 +1,22 @@
-# NBA新聞爬蟲專案
+# Unnotech Backend Engineer 徵才小專案
 
+## 目標達成狀況
+
+### 基本要求
+- [x] 抓取 http://tw-nba.udn.com/nba/index 中的焦點新聞。
+- [x] 使用 [Django](https://www.djangoproject.com/) 設計恰當的 Model，並將所抓取新聞存儲至 DB。
+- [x] 使用 [Django REST Framework](http://www.django-rest-framework.org/) 配合 AJAX 實現以下頁面：
+	 * 焦點新聞列表
+	 * 新聞詳情頁面
+- [x] 以 Pull-Request 的方式將代碼提交。
+	
+### 進階要求
+- [x] 實現爬蟲自動定時抓取。
+- [x] 使用 Websocket 服務，抓取到新的新聞時立即通知前端頁面。
+- [x] 將本 demo 部署到伺服器並可正確運行。
+- [x] 所實現新聞列表 API 可承受 100 QPS 的壓力測試。
+
+## 實作說明
 * 成品連結: [連結](http://34.122.154.90/)
 * 資料來源網站: [UDN NBA新聞網](https://tw-nba.udn.com/nba/index)
 
@@ -73,4 +90,4 @@ graph TD
 ## QPS測試
 利用Apache Benchmark 測試API，總共發送1000個請求，一次發送100個
 ### 測試結果
- ![image](https://github.com/tingwei741852/nba_news_crawler/blob/main/img/QPS_t
+ ![image](https://github.com/tingwei741852/nicetomeetyou/blob/master/img/QPS_test.png)
