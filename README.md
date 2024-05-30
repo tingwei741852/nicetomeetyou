@@ -20,21 +20,21 @@
 * 成品連結: [連結](http://34.122.154.90/)
 * 資料來源網站: [UDN NBA新聞網](https://tw-nba.udn.com/nba/index)
 
-## 使用工具說明
-### backend:
+### 使用工具說明
+#### backend:
 * 語言、框架: Python, Django
 * 資料庫: SQLite
 * 排程工具: APScheduler
 * Websocket: channels
 * 快取工具: redis
-### frontend
+#### frontend
 * 框架:Vue
 * UI元件:Vuetify
-### 雲端與容器化
+#### 雲端與容器化
 * 容器化工具: Docker
 * Server: GCP
 
-## 使用流程說明
+### 使用流程說明
 1. 進入系統時會顯示全部焦點新聞(與[UDN NBA新聞網](https://tw-nba.udn.com/nba/index) 輪播新聞同步，固定10則)
  ![image](https://github.com/tingwei741852/nba_news_crawler/blob/main/img/home.png)
 2. 點擊新聞後，會顯示新聞詳情內容
@@ -42,9 +42,9 @@
 3. 系統每30分鐘會去抓取最新的焦點新聞，如果有撈取到新的新聞，會透過WebSocket通知前端頁面，並更新新聞
 ![image](https://github.com/tingwei741852/nba_news_crawler/blob/main/img/websocket_notice.png)
 
-## 功能說明
+### 功能說明
 > 爬蟲程式抓取到新聞後，會把新聞存入redis，而新聞列表API會直接將redis的資料回傳，以此來減少DB的操作提升效能。
-### 新聞列表流程說明
+#### 新聞列表流程說明
 * 取得新聞列表API: [/api/get_focus_news/](http://34.122.154.90:8000/api/get_focus_news/)
 * 流程圖
 ```mermaid
@@ -57,7 +57,7 @@ graph LR
     E --> F[結束]
 ```
 
-### 爬取新聞流程說明
+#### 爬取新聞流程說明
 * 程式路徑: backend/main/crawler.py
 * 流程圖
 ```mermaid
@@ -73,7 +73,7 @@ graph TD
     H --> I[結束]
 ```
 
-### DB
+#### DB
 > 本次僅建立 `news` table作為新聞存取的table
 
 | Column Name  | Data Type    | Constraints                            | Description             |
@@ -87,7 +87,7 @@ graph TD
 | news_href    | varchar(200) | NOT NULL, UNIQUE                       | 新聞的連結              |
 | img_href     | varchar(200) | NOT NULL                               | 縮圖連結                |
 
-## QPS測試
+### QPS測試
 利用Apache Benchmark 測試API，總共發送1000個請求，一次發送100個
-### 測試結果
+#### 測試結果
  ![image](https://github.com/tingwei741852/nicetomeetyou/blob/master/img/QPS_test.png)
